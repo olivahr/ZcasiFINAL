@@ -5,120 +5,245 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZenSite | Planes</title>
 
+<meta name="description" content="Planes de diseño web profesional. Landing pages, sitios web y tiendas online con precios claros y resultados reales.">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:Segoe UI,Arial,sans-serif;background:#000;color:#fff}
+html{scroll-behavior:smooth}
+body{
+  font-family:Segoe UI,Arial,sans-serif;
+  background:#000;
+  color:#fff;
+  overflow-x:hidden;
+}
+
+/* BACKGROUND */
+@media(min-width:769px){
+  body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:url('background.png') center/cover no-repeat;
+    z-index:-2;
+  }
+}
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.6),rgba(0,0,0,.95));
+  z-index:-1;
+}
 
 /* HEADER */
-header{display:flex;justify-content:space-between;align-items:center;padding:18px 30px}
-nav a{color:#fff;text-decoration:none;margin-left:20px;font-weight:600}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 30px;
+}
+nav a{
+  color:#fff;
+  text-decoration:none;
+  margin-left:20px;
+  font-weight:600;
+  opacity:.85;
+}
+nav a:hover{opacity:1}
 
 /* TRANSLATOR */
-#google_translate_element{position:fixed;top:15px;right:15px;z-index:9999}
-.goog-logo-link,.goog-te-gadget span{display:none!important}
+#google_translate_element{
+  position:fixed;
+  top:15px;
+  right:15px;
+  z-index:9999;
+}
+.goog-logo-link,
+.goog-te-gadget span{display:none!important}
 .goog-te-gadget{color:transparent!important}
 .goog-te-combo{
-background:#000;color:#00cfff;border:1px solid #00cfff;
-padding:6px 10px;border-radius:6px;font-weight:700}
+  background:#000;
+  color:#00cfff;
+  border:1px solid #00cfff;
+  padding:6px 10px;
+  border-radius:6px;
+  font-weight:700;
+}
 
 /* PLANS */
 .plans{
-max-width:1100px;
-margin:120px auto;
-padding:20px;
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:40px
+  max-width:1200px;
+  margin:120px auto 80px;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:46px;
 }
+
+/* CARD 3D */
 .plan{
-background:rgba(255,255,255,.06);
-padding:40px;
-border-radius:28px;
-text-align:center
+  position:relative;
+  background:rgba(255,255,255,.06);
+  padding:46px 34px;
+  border-radius:30px;
+  backdrop-filter:blur(14px);
+  text-align:center;
+  transform-style:preserve-3d;
+  transition:transform .4s, box-shadow .4s;
+}
+.plan:hover{
+  transform:translateY(-14px) rotateX(6deg) rotateY(-6deg);
+  box-shadow:0 0 50px rgba(0,200,255,.55);
+}
+
+/* FEATURED */
+.plan.featured{
+  outline:2px solid rgba(0,200,255,.6);
+}
+.badge{
+  position:absolute;
+  top:-18px;
+  right:20px;
+  background:#00cfff;
+  color:#000;
+  padding:6px 18px;
+  border-radius:20px;
+  font-size:13px;
+  font-weight:900;
+}
+
+/* CONTENT */
+.plan h2{
+  font-size:30px;
+  margin-bottom:10px;
 }
 .price{
-font-size:42px;
-font-weight:900;
-color:#00cfff;
-margin:20px 0
+  font-size:46px;
+  font-weight:900;
+  color:#00cfff;
+  margin:18px 0;
 }
-.plan p{opacity:.9;line-height:1.6}
-.plan ul{list-style:none;margin-top:20px;text-align:left}
-.plan li{margin:10px 0}
+.plan p{
+  font-size:18px;
+  line-height:1.6;
+  opacity:.9;
+}
+.plan ul{
+  list-style:none;
+  margin:26px 0;
+  text-align:left;
+}
+.plan li{
+  margin:12px 0;
+  font-size:17px;
+}
+
+/* BUTTON */
+.plan a{
+  display:inline-block;
+  margin-top:28px;
+  padding:16px 48px;
+  border-radius:50px;
+  background:#00cfff;
+  color:#000;
+  font-weight:900;
+  text-decoration:none;
+  transition:.3s;
+}
+.plan a:hover{
+  transform:scale(1.05);
+}
 
 /* WHATSAPP */
 .whatsapp{
-position:fixed;bottom:22px;right:22px;
-width:60px;height:60px;
-background:#25D366;border-radius:50%;
-display:flex;align-items:center;justify-content:center;
-font-size:30px;color:#fff;text-decoration:none
+  position:fixed;
+  bottom:22px;
+  right:22px;
+  width:60px;
+  height:60px;
+  background:#25D366;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:30px;
+  color:#fff;
+  text-decoration:none;
+  z-index:3000;
 }
 </style>
 </head>
 
 <body>
 
+<!-- TRANSLATOR -->
 <div id="google_translate_element"></div>
 
 <header>
-<strong>ZenSite</strong>
-<nav>
-<a href="index.html">Inicio</a>
-<a href="demo.html">Demos</a>
-<a href="planes.html">Planes</a>
-<a href="nosotros.html">Nosotros</a>
-</nav>
+  <strong>ZenSite</strong>
+  <nav>
+    <a href="index.html">Inicio</a>
+    <a href="demo.html">Demos</a>
+    <a href="planes.html">Planes</a>
+    <a href="nosotros.html">Nosotros</a>
+  </nav>
 </header>
 
 <section class="plans">
 
-<div class="plan">
-<h2>Plan Z</h2>
-<div class="price">$190</div>
-<p>Ideal para negocios que necesitan una presencia clara y profesional.</p>
-<ul>
-<li>✔ Landing page profesional</li>
-<li>✔ Diseño moderno</li>
-<li>✔ Optimizada para móvil</li>
-<li>✔ Contacto directo</li>
-</ul>
-</div>
+  <div class="plan">
+    <h2>Plan Z</h2>
+    <div class="price">$190</div>
+    <p>Para negocios que necesitan una presencia clara y profesional.</p>
+    <ul>
+      <li>✔ Landing page profesional</li>
+      <li>✔ Diseño moderno</li>
+      <li>✔ Optimización móvil</li>
+      <li>✔ Contacto directo</li>
+    </ul>
+    <a href="https://wa.me/15027942412">Contáctanos</a>
+  </div>
 
-<div class="plan">
-<h2>Plan Z+</h2>
-<div class="price">$380</div>
-<p>Para marcas que buscan verse sólidas y convertir visitas en clientes.</p>
-<ul>
-<li>✔ Web multi-sección</li>
-<li>✔ Diseño premium</li>
-<li>✔ Velocidad optimizada</li>
-<li>✔ Estructura preparada para SEO</li>
-</ul>
-</div>
+  <div class="plan featured">
+    <span class="badge">MÁS VENDIDO</span>
+    <h2>Plan Z+</h2>
+    <div class="price">$380</div>
+    <p>Para marcas que buscan verse sólidas y convertir visitas.</p>
+    <ul>
+      <li>✔ Web multi-sección</li>
+      <li>✔ Diseño premium</li>
+      <li>✔ Velocidad optimizada</li>
+      <li>✔ Preparada para SEO</li>
+    </ul>
+    <a href="https://wa.me/15027942412">Contáctanos</a>
+  </div>
 
-<div class="plan">
-<h2>Z Premium</h2>
-<div class="price">$620</div>
-<p>Para negocios que venden productos o servicios online.</p>
-<ul>
-<li>✔ Tienda online o web avanzada</li>
-<li>✔ Carrito de compras</li>
-<li>✔ Diseño personalizado</li>
-<li>✔ Proyecto escalable</li>
-</ul>
-</div>
+  <div class="plan">
+    <h2>Z Premium</h2>
+    <div class="price">$620</div>
+    <p>Para negocios que venden productos o servicios online.</p>
+    <ul>
+      <li>✔ Tienda online o web avanzada</li>
+      <li>✔ Carrito de compras</li>
+      <li>✔ Diseño personalizado</li>
+      <li>✔ Escalable</li>
+    </ul>
+    <a href="https://wa.me/15027942412">Contáctanos</a>
+  </div>
 
 </section>
 
-<a class="whatsapp" href="https://wa.me/15027942412">💬</a>
+<a class="whatsapp" href="https://wa.me/15027942412" target="_blank">💬</a>
 
-<script>
+<!-- GOOGLE TRANSLATE -->
+<script type="text/javascript">
 function googleTranslateElementInit(){
-new google.translate.TranslateElement({
-pageLanguage:'es',includedLanguages:'es,en',
-layout:google.translate.TranslateElement.InlineLayout.SIMPLE
-},'google_translate_element')}
+  new google.translate.TranslateElement({
+    pageLanguage:'es',
+    includedLanguages:'es,en',
+    layout:google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
 </script>
 <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
