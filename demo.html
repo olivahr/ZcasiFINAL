@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZenSite | Demos</title>
 
+<meta name="description" content="Trabajos y demostraciones de ZenSite. Ejemplos reales de diseño web profesional.">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{
@@ -48,7 +50,7 @@ nav a{
 }
 nav a:hover{opacity:1}
 
-/* GOOGLE TRANSLATE */
+/* TRANSLATOR */
 #google_translate_element{
   position:fixed;
   top:15px;
@@ -86,7 +88,7 @@ p{
   opacity:.9;
 }
 
-/* DEMO GRID (NO FALLA) */
+/* DEMO GRID */
 .demo-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -107,22 +109,41 @@ p{
   display:block;
 }
 
-/* REVIEWS */
-.reviews{
-  margin-top:90px;
-  display:grid;
-  gap:26px;
-  text-align:left;
+/* REVIEWS SLIDER */
+.reviews-section{
+  margin-top:120px;
+}
+.reviews-section h2{
+  font-size:34px;
+  margin-bottom:40px;
+}
+.reviews-slider{
+  position:relative;
+  max-width:820px;
+  margin:auto;
+  height:170px;
 }
 .review{
+  position:absolute;
+  inset:0;
   background:rgba(255,255,255,.06);
-  padding:30px;
-  border-radius:22px;
+  padding:36px;
+  border-radius:26px;
+  opacity:0;
+  transform:translateX(40px);
+  transition:opacity .6s ease, transform .6s ease;
+  font-size:18px;
+  line-height:1.6;
+}
+.review.active{
+  opacity:1;
+  transform:translateX(0);
 }
 .review span{
   display:block;
-  margin-top:10px;
+  margin-top:14px;
   font-weight:700;
+  opacity:.9;
 }
 
 /* WHATSAPP */
@@ -147,12 +168,14 @@ p{
 
 <body>
 
+<!-- TRANSLATOR -->
 <div id="google_translate_element"></div>
 
 <header>
   <strong>ZenSite</strong>
   <nav>
     <a href="index.html">Inicio</a>
+    <a href="demo.html">Demos</a>
     <a href="planes.html">Planes</a>
     <a href="nosotros.html">Nosotros</a>
   </nav>
@@ -163,10 +186,10 @@ p{
 <h1>Trabajos y demostraciones</h1>
 <p>
 Ejemplos reales del tipo de webs que diseñamos.
-Cada demo representa un estilo y una necesidad diferente.
+Cada demo representa un estilo y una necesidad distinta.
 </p>
 
-<!-- 8 DEMOS REALES -->
+<!-- 8 DEMOS -->
 <div class="demo-grid">
   <div class="demo"><img src="demo1.png" alt="Demo 1"></div>
   <div class="demo"><img src="demo2.png" alt="Demo 2"></div>
@@ -178,48 +201,69 @@ Cada demo representa un estilo y una necesidad diferente.
   <div class="demo"><img src="demo8.png" alt="Demo 8"></div>
 </div>
 
-<!-- RESEÑAS -->
-<section class="reviews">
-  <div class="review">
-    ⭐⭐⭐⭐⭐  
-    “Ahora mi web se ve seria y profesional.”
-    <span>— Carlos M.</span>
-  </div>
-  <div class="review">
-    ⭐⭐⭐⭐⭐  
-    “No parece una plantilla, se siente hecha a medida.”
-    <span>— Andrea R.</span>
-  </div>
-  <div class="review">
-    ⭐⭐⭐⭐⭐  
-    “Carga rápido y se ve perfecta en el teléfono.”
-    <span>— Luis G.</span>
-  </div>
-  <div class="review">
-    ⭐⭐⭐⭐⭐  
-    “El diseño transmite confianza desde el primer segundo.”
-    <span>— Miguel T.</span>
-  </div>
-  <div class="review">
-    ⭐⭐⭐⭐⭐  
-    “Muy profesionales y claros.”
-    <span>— Daniela P.</span>
-  </div>
-  <div class="review">
-    ⭐⭐⭐⭐⭐  
-    “Recomendados si quieres algo serio.”
-    <span>— Roberto S.</span>
-  </div>
-  <div class="review">
-    ⭐⭐⭐⭐⭐  
-    “Exactamente lo que estaba buscando.”
-    <span>— José A.</span>
+<!-- REVIEWS SLIDER -->
+<section class="reviews-section">
+  <h2>Lo que dicen nuestros clientes</h2>
+
+  <div class="reviews-slider">
+    <div class="review active">
+      ⭐⭐⭐⭐⭐  
+      “Ahora mi web se ve seria y profesional.”
+      <span>— Carlos M.</span>
+    </div>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐  
+      “No parece una plantilla, se siente hecha a medida.”
+      <span>— Andrea R.</span>
+    </div>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐  
+      “Carga rápido y se ve perfecta en el teléfono.”
+      <span>— Luis G.</span>
+    </div>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐  
+      “El diseño transmite confianza desde el primer segundo.”
+      <span>— Miguel T.</span>
+    </div>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐  
+      “Muy profesionales y claros en todo.”
+      <span>— Daniela P.</span>
+    </div>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐  
+      “Exactamente lo que buscaba.”
+      <span>— Roberto S.</span>
+    </div>
+
+    <div class="review">
+      ⭐⭐⭐⭐⭐  
+      “Recomendados si quieres algo serio.”
+      <span>— José A.</span>
+    </div>
   </div>
 </section>
 
 </main>
 
 <a class="whatsapp" href="https://wa.me/15027942412" target="_blank">💬</a>
+
+<!-- REVIEWS SLIDE SCRIPT -->
+<script>
+const reviews = document.querySelectorAll('.review');
+let currentReview = 0;
+setInterval(() => {
+  reviews[currentReview].classList.remove('active');
+  currentReview = (currentReview + 1) % reviews.length;
+  reviews[currentReview].classList.add('active');
+}, 4000);
+</script>
 
 <!-- GOOGLE TRANSLATE -->
 <script type="text/javascript">
